@@ -1,0 +1,15 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Flavors</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-grid>
+
+    @for (flavor of flavors; track flavor.name) {
+      <app-flavor [flavor]="flavor"></app-flavor>
+    }
+
+  </ion-grid>
+</ion-content>

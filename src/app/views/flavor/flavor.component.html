@@ -1,17 +1,9 @@
-<ion-header [translucent] = "true">
-  <ion-toolbar>
-    <ion-title>
-      Stock
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-row style="margin-bottom: 12px; align-items: center;">
+  <ion-col>
+    <ion-label>{{ flavor.name }}</ion-label>
+  </ion-col>
 
-<ion-content [fullscreen]="true" class ="ion-padding">
-  <ion-grid>
-    <ion-col>
-      <ion-label>
-        {{flavor.name}}
-        {{flavor.stock}}
-      </ion-label>
-    </ion-col>
-  <ion-grid>
+  <ion-col size="auto">
+    <ion-label>{{ flavor.stock }} ml</ion-label>
+  </ion-col>
+</ion-row>
