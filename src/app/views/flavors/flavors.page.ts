@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import {
   IonContent, IonHeader, IonToolbar, IonTitle,
-  IonGrid, IonRow, IonCheckbox, IonCol, IonRadio, IonLabel } from '@ionic/angular/standalone';
+  IonGrid, IonRow, IonCheckbox, IonCol, IonRadio, IonRadioGroup, IonLabel } from '@ionic/angular/standalone';
 
 import { IceCreamRepository } from 'src/app/repository/ice-cream-repository';
 import { Flavor } from 'src/app/data/flavor';
@@ -15,7 +15,7 @@ import { FlavorComponent } from '../flavor/flavor.component';
   templateUrl: './flavors.page.html',
   styleUrls: ['./flavors.page.scss'],
   standalone: true,
-  imports: [IonLabel, IonRadio, IonCol, 
+  imports: [IonLabel, IonRadio,  IonRadioGroup, IonCol, 
     IonContent, IonHeader, IonToolbar, IonTitle,
     IonGrid, IonRow, IonCheckbox,
     CommonModule, FormsModule,
@@ -63,5 +63,49 @@ get flavors(): Flavor[] {
   get totalScoops(): number {
     return this.iceCreamRepository.flavors.reduce((sum, f) => sum + f.scoops, 0);
   }
+
+  //fonction pour calculer le prix des boules
+  get scoopsPrice(): number {
+    const n = this.totalScoops;
+
+    switch (n) {
+      case 1: return 1.50;
+      case 2: return 3;
+      case 3: return 4;
+      case 4: return 5;
+      case 5: return 5.50;
+      default: return 0;
+    }
+  }
+
+  //prix container
+  get containerPrice(): number {
+    if (!this.selectedContainer) return 0;
+
+    const container = this.iceCreamRepository.containers.find(
+      c => c.type === this.selectedContainer
+    );
+
+    return container ? container.price : 0;
+  }
+
+  //prix des extras
+  get extrasPrice(): number {
+    let total = 0;
+
+    this.iceCreamRepository.extras.forEach(extra => {
+      if (this.selectedExtras[extra.name]) {
+        total += extra.price;
+      }
+    });
+
+    return total;
+  }
+
+  //prix total de la glace
+  get totalPrice(): number {
+    return this.scoopsPrice + this.containerPrice + this.extrasPrice;
+  }
+
 
 }

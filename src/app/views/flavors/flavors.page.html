@@ -23,7 +23,7 @@
       </ion-col>
     </ion-row>
 
-     <ion-radio-group [(ngModel)]="selectedContainer">
+    <ion-radio-group [(ngModel)]="selectedContainer" ngDefaultControl>
       @for (container of containers; track container.type) {
         <ion-row style="margin-bottom: 10px;">
           <ion-col size="auto">
@@ -35,6 +35,8 @@
         </ion-row>
       }
     </ion-radio-group>
+    <p>DEBUG container = {{ selectedContainer }}</p>
+    <p>DEBUG price = {{ containerPrice }}</p>
 
     <!-- SECTION : EXTRAS -->
     <ion-row style="margin-top: 30px;">
@@ -54,6 +56,18 @@
         </ion-col>
       </ion-row>
     }
+
+
+    <!-- PRICE SECTION -->
+    <ion-row style="margin-top: 30px;">
+      <ion-col>
+        <h2>Price</h2>
+      </ion-col>
+      <ion-col size="auto">
+        <strong>€ {{ totalPrice | number:'1.2-2' }}</strong>
+      </ion-col>
+    </ion-row>
+
 
   </ion-grid>
 </ion-content>
