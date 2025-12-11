@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { IceCreamRepository } from 'src/app/repository/ice-cream-repository';
 import { Flavor } from 'src/app/data/flavor';
 
@@ -21,7 +22,7 @@ import {
     IonContent, IonHeader, IonToolbar, IonTitle,
     IonGrid, IonRow, IonCol, IonImg, IonLabel,
     IonInput, IonButton,
-    CommonModule, FormsModule
+    CommonModule, FormsModule, RouterLink
   ]
 })
 export class EmptyFlavorPage {

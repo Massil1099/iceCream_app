@@ -21,4 +21,8 @@ export const routes: Routes = [
     path: 'empty-flavor/:name',
     loadComponent: () => import('./views/empty-flavor/empty-flavor.page').then( m => m.EmptyFlavorPage)
   },
+  {
+    path: 'all-items/:name',
+    loadComponent: () => import('./views/all-items/all-items.page').then( m => m.AllItemsPage)
+  },
 ];

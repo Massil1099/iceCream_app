@@ -34,9 +34,13 @@
 
     <ion-row>
       <ion-col>
-        <ion-button fill="outline" expand="block" (click)="onCheckAllItems()">
+        <ion-button
+          fill="outline"
+          expand="block"
+          [routerLink]="['/all-items', flavor.name]">
           Check all items
         </ion-button>
+
       </ion-col>
     </ion-row>
 
