@@ -11,9 +11,9 @@ export class IceCreamRepositoryDummyImpl extends IceCreamRepository {
 
    /** Parfums avec stock (volumes en ml) */
   public flavors: Flavor[] = [
-    { name: "Chocolate",   stock: 500 },
-    { name: "Vanilla", stock: 500},
-    { name: "Pistachio", stock: 0}, // exemple épuisé
+    { name: "Chocolate",   stock: 500, img: "assets/img/chocolate.jpg" },
+    { name: "Vanilla", stock: 500, img: "assets/img/vanilla.jpg"},
+    { name: "Pistachio", stock: 0, img: "assets/img/pistachio.jpg"}, // exemple épuisé
   ];
   
 
