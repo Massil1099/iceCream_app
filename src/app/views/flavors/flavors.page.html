@@ -15,6 +15,15 @@
       ></app-flavor>
     }
 
+    <!-- MESSAGE ERREUR -->
+    <ion-row *ngIf="isMaxReached" style="margin-top: 10px;">
+      <ion-col>
+        <ion-text color="danger">
+          <strong>Maximum scoops reached (5)</strong>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+
 
     <!-- SECTION : CONTAINER -->
     <ion-row style="margin-top: 30px;">

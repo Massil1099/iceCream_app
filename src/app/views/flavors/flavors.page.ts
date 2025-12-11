@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import {
   IonContent, IonHeader, IonToolbar, IonTitle,
-  IonGrid, IonRow, IonCheckbox, IonCol, IonRadio, IonRadioGroup, IonLabel } from '@ionic/angular/standalone';
+  IonGrid, IonRow, IonCheckbox, IonCol, IonRadio, IonRadioGroup, IonLabel, IonText } from '@ionic/angular/standalone';
 
 import { IceCreamRepository } from 'src/app/repository/ice-cream-repository';
 import { Flavor } from 'src/app/data/flavor';
@@ -15,7 +15,7 @@ import { FlavorComponent } from '../flavor/flavor.component';
   templateUrl: './flavors.page.html',
   styleUrls: ['./flavors.page.scss'],
   standalone: true,
-  imports: [IonLabel, IonRadio,  IonRadioGroup, IonCol, 
+  imports: [IonText, IonLabel, IonRadio,  IonRadioGroup, IonCol, 
     IonContent, IonHeader, IonToolbar, IonTitle,
     IonGrid, IonRow, IonCheckbox,
     CommonModule, FormsModule,
@@ -63,6 +63,11 @@ get flavors(): Flavor[] {
   get totalScoops(): number {
     return this.iceCreamRepository.flavors.reduce((sum, f) => sum + f.scoops, 0);
   }
+
+  //si on arrive a 5 scoops (pour l'affichage de l'erreur)
+  get isMaxReached(): boolean {
+  return this.totalScoops >= this.maxScoops;
+}
 
   //fonction pour calculer le prix des boules
   get scoopsPrice(): number {
