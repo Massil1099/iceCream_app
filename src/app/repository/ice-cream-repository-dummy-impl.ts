@@ -13,7 +13,7 @@ export class IceCreamRepositoryDummyImpl extends IceCreamRepository {
   public flavors: Flavor[] = [
     { name: "Chocolate",   stock: 500, img: "assets/img/chocolate.jpg", isEmpty: false, scoops: 0 },
     { name: "Vanilla", stock: 500, img: "assets/img/vanilla.jpg", isEmpty: false, scoops: 0},
-    { name: "Pistachio", stock: 0, img: "assets/img/pistachio.jpg", isEmpty: false, scoops: 0}, // exemple épuisé
+    { name: "Pistachio", stock: 0, img: "assets/img/pistachio.jpg", isEmpty: true, scoops: 0}, // exemple épuisé
   ];
   
 

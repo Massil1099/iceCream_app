@@ -4,11 +4,12 @@
     <ion-img [src]="flavor.img" style="width:60px;"></ion-img>
   </ion-col>
   
+  <!-- Nom -->
   <ion-col>
     <ion-label>{{ flavor.name }}</ion-label>
   </ion-col>
 
-  <!-- Boutons + / - -->
+  <!-- Boutons + / - + label / alerte -->
   <ion-col size="auto" style="display:flex; align-items:center; gap:5px">
 
     <!-- Bouton - -->
@@ -25,14 +26,19 @@
       +
     </ion-button>
 
-    <!-- Nombre de boules -->
-    <ion-label>{{ flavor.scoops }}</ion-label>
+    <!-- Soit le nombre de boules, soit le bouton d'alerte -->
+    <ng-container *ngIf="!flavor.isEmpty; else alertTpl">
+      <ion-label>{{ flavor.scoops }}</ion-label>
+    </ng-container>
 
-    <!-- Icône d’alerte -->
-    <ion-label *ngIf="flavor.isEmpty" color="danger">
-      🔴
-    </ion-label>
+    <ng-template #alertTpl>
+      <ion-button
+        color="danger"
+        shape="round"
+        [routerLink]="['/empty-flavor', flavor.name]">
+        <ion-icon name="alert-circle"></ion-icon>
+      </ion-button>
+    </ng-template>
 
   </ion-col>
-
 </ion-row>

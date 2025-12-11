@@ -1,13 +1,15 @@
 import { Component, Input } from '@angular/core';
-import { IonRow , IonCol , IonLabel, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonImg, IonButton } from "@ionic/angular/standalone";
+import { CommonModule } from '@angular/common';
+import { IonRow , IonCol , IonLabel, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonImg, IonButton, IonIcon  } from "@ionic/angular/standalone";
 import { Flavor } from 'src/app/data/flavor';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-flavor',
   templateUrl: './flavor.component.html',
   styleUrls: ['./flavor.component.scss'],
   standalone: true,
-  imports: [IonButton, IonImg, IonGrid, IonContent, IonTitle, IonToolbar, IonHeader, IonCol, IonRow, IonLabel]
+  imports: [CommonModule, IonButton, IonImg, IonGrid, IonContent, IonTitle, IonToolbar, IonHeader, IonCol, IonRow, IonLabel, IonIcon, RouterLink]
 })
 export class FlavorComponent {
 

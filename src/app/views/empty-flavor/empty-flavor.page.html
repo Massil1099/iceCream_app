@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Flavor empty</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-grid>
+
+    <ion-row style="margin-bottom:16px;">
+      <ion-col size="auto">
+        <ion-img [src]="flavor.img" style="width:80px;"></ion-img>
+      </ion-col>
+      <ion-col>
+        <h2>{{ flavor.name }} flavor is empty</h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="margin-top:16px;">
+      <ion-col>
+        <ion-label>Signature</ion-label>
+        <ion-input [(ngModel)]="signature" placeholder="Enter your signature"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="margin-top:24px;">
+      <ion-col>
+        <ion-button expand="block" (click)="onOrder()">
+          Order
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button fill="outline" expand="block" (click)="onCheckAllItems()">
+          Check all items
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>
