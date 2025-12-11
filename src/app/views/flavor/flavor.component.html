@@ -1,5 +1,6 @@
 <ion-row style="margin-bottom: 12px; align-items: center;">
-   <ion-col size="auto">
+  <!-- Image -->
+  <ion-col size="auto">
     <ion-img [src]="flavor.img" style="width:60px;"></ion-img>
   </ion-col>
   
@@ -7,7 +8,31 @@
     <ion-label>{{ flavor.name }}</ion-label>
   </ion-col>
 
-  <ion-col size="auto">
-    <ion-label>{{ flavor.stock }} ml</ion-label>
+  <!-- Boutons + / - -->
+  <ion-col size="auto" style="display:flex; align-items:center; gap:5px">
+
+    <!-- Bouton - -->
+    <ion-button fill="outline" size="small"
+      (click)="onSub()"
+      [disabled]="canNotBeDecreased()">
+      -
+    </ion-button>
+
+    <!-- Bouton + -->
+    <ion-button fill="outline" size="small"
+      (click)="onAdd()"
+      [disabled]="canNotBeIncreased()">
+      +
+    </ion-button>
+
+    <!-- Nombre de boules -->
+    <ion-label>{{ flavor.scoops }}</ion-label>
+
+    <!-- Icône d’alerte -->
+    <ion-label *ngIf="flavor.isEmpty" color="danger">
+      🔴
+    </ion-label>
+
   </ion-col>
+
 </ion-row>

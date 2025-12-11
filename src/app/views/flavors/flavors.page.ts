@@ -24,8 +24,12 @@ import { FlavorComponent } from '../flavor/flavor.component';
 })
 export class FlavorsPage {
 
-    selectedContainer: string | null = null;
-    selectedExtras: Record<string, boolean> = {};
+  onlyEmpty = false;
+
+  selectedContainer: string | null = null;
+  selectedExtras: Record<string, boolean> = {};
+  scoops: Record<string, number> = {}; // ex: { "Vanilla": 2, "Chocolate": 1 }
+  maxScoops = 5;
 
     
   constructor( private iceCreamRepository : IceCreamRepository) { 
@@ -33,12 +37,21 @@ export class FlavorsPage {
     this.iceCreamRepository.extras.forEach(extra => {
       this.selectedExtras[extra.name] = false;
     });
-  }
-    get flavors(): Flavor[] {
-      return this.iceCreamRepository.flavors
-    }
 
-     get containers() {
+    // initialise les quantites selectionnes a 0
+    this.iceCreamRepository.flavors.forEach(f => {
+      this.scoops[f.name] = 0;
+    });
+
+  }
+get flavors(): Flavor[] {
+    if (this.onlyEmpty) {
+      return this.iceCreamRepository.flavors.filter(f => f.isEmpty);
+    }
+    return this.iceCreamRepository.flavors;
+  }
+
+  get containers() {
     return this.iceCreamRepository.containers;
   }
 
@@ -46,5 +59,9 @@ export class FlavorsPage {
     return this.iceCreamRepository.extras;
   }
 
+
+  get totalScoops(): number {
+    return this.iceCreamRepository.flavors.reduce((sum, f) => sum + f.scoops, 0);
+  }
 
 }

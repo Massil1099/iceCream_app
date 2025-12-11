@@ -8,7 +8,11 @@
   <ion-grid>
 
     @for (flavor of flavors; track flavor.name) {
-      <app-flavor [flavor]="flavor"></app-flavor>
+      <app-flavor
+        [flavor]="flavor"
+        [totalScoops]="totalScoops"
+        [maxScoops]="maxScoops"
+      ></app-flavor>
     }
 
 
