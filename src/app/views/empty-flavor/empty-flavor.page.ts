@@ -49,8 +49,10 @@ ${this.signature}`;
 
   onOrder() {
     const body = encodeURIComponent(this.orderMessage);
-    window.location.href = `mailto:order@icecream.com?subject=Order&body=${body}`;
+    const url = `mailto:order@icecream.com?subject=Order&body=${body}`;
+    window.open(url, '_self');
   }
+
 
   onCheckAllItems() {
     this.router.navigate(['/flavors']);
