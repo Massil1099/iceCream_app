@@ -20,7 +20,7 @@ export class IceCreamRepositoryDummyImpl extends IceCreamRepository {
   /** Ingrédients supplémentaires */
   public extras: Extra[] = [
     { name: "whiped cream", stock: 300, price: 0.95 },
-    { name: "Hazelnuts", stock: 200, price: 0.95 }
+    { name: "Hazelnuts", stock: 200, price: 1.30 }
   ];
 
 
