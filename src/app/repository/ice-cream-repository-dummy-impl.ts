@@ -11,8 +11,8 @@ export class IceCreamRepositoryDummyImpl extends IceCreamRepository {
 
    /** Parfums avec stock (volumes en ml) */
   public flavors: Flavor[] = [
-    { name: "Chocolate",   stock: 500, img: "assets/img/chocolate.jpg", isEmpty: false, scoops: 0 },
-    { name: "Vanilla", stock: 500, img: "assets/img/vanilla.jpg", isEmpty: false, scoops: 0},
+    { name: "Chocolate",   stock: 300, img: "assets/img/chocolate.jpg", isEmpty: false, scoops: 0 },
+    { name: "Vanilla", stock: 100, img: "assets/img/vanilla.jpg", isEmpty: false, scoops: 0},
     { name: "Pistachio", stock: 0, img: "assets/img/pistachio.jpg", isEmpty: true, scoops: 0}, // exemple épuisé
   ];
   
@@ -26,8 +26,8 @@ export class IceCreamRepositoryDummyImpl extends IceCreamRepository {
 
   /** Contenants disponibles */
   public containers: Container[] = [
-    { type: 'cup',  price: 0 },
-    { type: 'cone', price: 1 }
+    { type: 'cup',  price: 0, stock: 2 },
+    { type: 'cone', price: 1, stock: 7 }
   ];
 
 }

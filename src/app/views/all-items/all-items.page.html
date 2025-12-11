@@ -1,13 +1,121 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>all-items</ion-title>
+    <ion-title>All items</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">all-items</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+
+  <ion-grid>
+
+    <!-- BOUTON Collapse / Expand -->
+    <ion-row style="margin-bottom: 20px;">
+      <ion-col>
+        <ion-button fill="outline" expand="block" (click)="toggleCollapse()">
+          {{ collapsed ? 'Expand items' : 'Collapse other items' }}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+
+    <!-- Parfum sélectionné affiché en premier -->
+    <ion-row>
+      <ion-col>
+        <h2>Selected item</h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="margin-bottom: 12px; align-items:center;">
+      <ion-col>
+        <ion-label>{{ selectedName }}</ion-label>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-checkbox [checked]="true" disabled="true"></ion-checkbox>
+      </ion-col>
+    </ion-row>
+
+
+    <!-- Autres items (si pas collapsed) -->
+    <ng-container *ngIf="!collapsed">
+
+      <!-- Other flavors -->
+      <ion-row>
+        <ion-col>
+          <h2>Other flavors</h2>
+        </ion-col>
+      </ion-row>
+
+      @for (flavor of flavors; track flavor.name) {
+        @if (flavor.name !== selectedName) {
+          <ion-row style="margin-bottom: 12px; align-items:center;">
+            <ion-col>
+              <ion-label>{{ flavor.name }} ({{ flavor.stock }} ml)</ion-label>
+            </ion-col>
+            <ion-col size="auto">
+              <ion-checkbox [(ngModel)]="selected[flavor.name]"></ion-checkbox>
+            </ion-col>
+          </ion-row>
+        }
+      }
+
+      <!-- Containers -->
+      <ion-row>
+        <ion-col>
+          <h2>Containers</h2>
+        </ion-col>
+      </ion-row>
+
+      @for (container of containers; track container.type) {
+        <ion-row style="margin-bottom: 12px; align-items:center;">
+          <ion-col>
+            <ion-label>{{ container.type | titlecase }} ({{ container.stock }} units)</ion-label>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-checkbox [(ngModel)]="selected[container.type]"></ion-checkbox>
+          </ion-col>
+        </ion-row>
+      }
+
+      <!-- Extras -->
+      <ion-row>
+        <ion-col>
+          <h2>Extras</h2>
+        </ion-col>
+      </ion-row>
+
+      @for (extra of extras; track extra.name) {
+        <ion-row style="margin-bottom: 12px; align-items:center;">
+          <ion-col>
+            <ion-label>{{ extra.name }} ({{ extra.stock }} {{ getUnit(extra) }})</ion-label>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-checkbox [(ngModel)]="selected[extra.name]"></ion-checkbox>
+          </ion-col>
+        </ion-row>
+      }
+
+    </ng-container>
+
+
+    <!-- BOUTON Order -->
+    <ion-row style="margin-top: 30px;">
+      <ion-col>
+        <ion-button expand="block" (click)="onOrder()">
+          Order
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+
+    <!-- Bouton back -->
+    <ion-row style="margin-top: 8px;">
+      <ion-col>
+        <ion-button expand="block" fill="outline" (click)="goBack()">
+          Back
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
 </ion-content>
