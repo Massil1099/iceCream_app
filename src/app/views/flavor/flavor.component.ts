@@ -42,4 +42,8 @@ export class FlavorComponent {
     if (!this.canNotBeIncreased()) this.flavor.scoops++;
   }
 
+  isOutOfStock(): boolean{
+    return this.flavor.stock <= 0;
+  }
+
 }

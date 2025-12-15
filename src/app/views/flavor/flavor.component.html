@@ -27,7 +27,7 @@
     </ion-button>
 
     <!-- Soit le nombre de boules, soit le bouton d'alerte -->
-    <ng-container *ngIf="!flavor.isEmpty; else alertTpl">
+    <ng-container *ngIf="!isOutOfStock(); else alertTpl">
       <ion-label>{{ flavor.scoops }}</ion-label>
     </ng-container>
 
