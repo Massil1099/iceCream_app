@@ -44,7 +44,7 @@ export class FlavorsPage {
     });
 
   }
-get flavors(): Flavor[] {
+  get flavors(): Flavor[] {
     if (this.onlyEmpty) {
       return this.iceCreamRepository.flavors.filter(f => f.isEmpty);
     }
@@ -67,7 +67,7 @@ get flavors(): Flavor[] {
   //si on arrive a 5 scoops (pour l'affichage de l'erreur)
   get isMaxReached(): boolean {
   return this.totalScoops >= this.maxScoops;
-}
+  }
 
   //fonction pour calculer le prix des boules
   get scoopsPrice(): number {
@@ -111,6 +111,83 @@ get flavors(): Flavor[] {
   get totalPrice(): number {
     return this.scoopsPrice + this.containerPrice + this.extrasPrice;
   }
+
+
+
+
+
+  get canMakeIceCream(): boolean {
+  // au moins une boule
+  if (this.totalScoops === 0) return false;
+
+  // vérifier stock des parfums
+  for (const flavor of this.iceCreamRepository.flavors) {
+    const needed = flavor.scoops * 50;
+    if (needed > flavor.stock) {
+      return false;
+    }
+  }
+
+  // extras
+  for (const extra of this.iceCreamRepository.extras) {
+    if (this.selectedExtras[extra.name]) {
+      const needed =
+        extra.name.toLowerCase().includes('cream') ? 75 : 5;
+
+      if (needed > extra.stock) {
+        return false;
+      }
+    }
+  }
+
+  // container
+  if (this.selectedContainer) {
+    const container = this.iceCreamRepository.containers.find(
+      c => c.type === this.selectedContainer
+    );
+    if (!container || container.stock < 1) {
+      return false;
+    }
+  }
+
+  return true;
+  }
+
+
+  
+  makeIceCream() {
+  if (!this.canMakeIceCream) return;
+
+  // Consommation des parfums
+  this.iceCreamRepository.flavors.forEach(flavor => {
+    const used = flavor.scoops * 50;
+    flavor.stock -= used;
+    flavor.scoops = 0;
+  });
+
+  // Consommation des extras
+  this.iceCreamRepository.extras.forEach(extra => {
+    if (this.selectedExtras[extra.name]) {
+      const used =
+        extra.name.toLowerCase().includes('cream') ? 75 : 5;
+      extra.stock -= used;
+      this.selectedExtras[extra.name] = false;
+    }
+  });
+
+  // Consommation du container
+  if (this.selectedContainer) {
+    const container = this.iceCreamRepository.containers.find(
+      c => c.type === this.selectedContainer
+    );
+    if (container) {
+      container.stock -= 1;
+    }
+    this.selectedContainer = null;
+  }
+
+  alert('Ice cream successfully created');
+}
 
 
 }
