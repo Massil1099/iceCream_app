@@ -1,0 +1,50 @@
+/* Marge en haut pour éviter la barre système */
+ion-content {
+  --padding-top: 16px;
+}
+
+/* Titres de sections */
+h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+/* Message erreur max scoops */
+ion-text[color="danger"] {
+  font-size: 14px;
+}
+
+/* Radio + checkbox alignement */
+ion-radio,
+ion-checkbox {
+  --size: 20px;
+}
+
+/* Ligne container / extras */
+ion-row {
+  align-items: center;
+}
+
+/* Section price */
+ion-row:last-of-type strong {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Bouton Make ice cream */
+ion-button[expand="block"] {
+  --border-radius: 24px;
+  --background: #6b5aa6;
+  --background-activated: #5a4a94;
+  --color: #fff;
+  height: 48px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Bouton désactivé */
+ion-button[disabled] {
+  opacity: 0.5;
+}

@@ -1,0 +1,36 @@
+ion-row {
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+ion-img {
+  border-radius: 50%;
+}
+
+ion-label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #222;
+}
+
+/* Boutons + / - */
+ion-button {
+  --border-radius: 12px;
+  --padding-start: 10px;
+  --padding-end: 10px;
+  --min-height: 32px;
+}
+
+/* Nombre de boules */
+ion-label:last-child {
+  min-width: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Bouton d’alerte */
+ion-button[color="danger"] {
+  --border-radius: 50%;
+  width: 36px;
+  height: 36px;
+}
