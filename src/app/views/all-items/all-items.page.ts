@@ -86,14 +86,14 @@ export class AllItemsPage {
 
 
   getUnit(item: any): string {
-  // Flavours are always ml
+  // Flavours en ml
   if ('scoops' in item) return 'ml';
 
   // Extras
   if (item.name.toLowerCase().includes('cream')) return 'ml';
   if (item.name.toLowerCase().includes('hazelnut')) return 'g';
 
-  // Containers → units
+  // Containers en unites
   if ('type' in item) return 'units';
 
   return '';

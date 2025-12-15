@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonRow , IonCol , IonLabel, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonImg, IonButton, IonIcon  } from "@ionic/angular/standalone";
+import { IonRow , IonCol , IonLabel, IonImg, IonButton, IonIcon  } from "@ionic/angular/standalone";
 import { Flavor } from 'src/app/data/flavor';
 import { RouterLink } from '@angular/router';
 
@@ -9,7 +9,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './flavor.component.html',
   styleUrls: ['./flavor.component.scss'],
   standalone: true,
-  imports: [CommonModule, IonButton, IonImg, IonGrid, IonContent, IonTitle, IonToolbar, IonHeader, IonCol, IonRow, IonLabel, IonIcon, RouterLink]
+  imports: [CommonModule, IonButton, IonImg, IonCol, IonRow, IonLabel, IonIcon, RouterLink]
 })
 export class FlavorComponent {
 
