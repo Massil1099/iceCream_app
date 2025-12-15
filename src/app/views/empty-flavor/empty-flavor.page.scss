@@ -1,0 +1,76 @@
+/* Marge haute pour la barre système */
+ion-content {
+  --padding-top: 16px;
+}
+
+/* Ligne image + texte */
+ion-row:first-of-type {
+  align-items: center;
+}
+
+/* Image du parfum */
+ion-img {
+  border-radius: 50%;
+}
+
+/* Titre "Pistachio flavour is empty" */
+h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #222;
+  margin: 0;
+}
+
+/* Label Signature */
+ion-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+}
+
+/* Champ input */
+ion-input {
+  margin-top: 6px;
+  background: #ece9f1;
+  border-radius: 8px;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+}
+
+/* === ALIGNEMENT SIGNATURE + ORDER === */
+
+/* Ligne du bouton Order */
+ion-row:nth-of-type(3) {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Bouton Order : petit bouton violet */
+ion-row:nth-of-type(3) ion-button {
+  width: auto;
+  padding: 0 20px;
+  height: 36px;
+  --border-radius: 18px;
+  --background: #6b5aa6;
+  --background-activated: #5a4a94;
+  --color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* === BOUTON CHECK ALL ITEMS === */
+
+/* Bouton large violet */
+ion-button[fill="outline"] {
+  margin-top: 16px;
+  height: 44px;
+  --border-radius: 22px;
+  --background: #6b5aa6;
+  --background-activated: #5a4a94;
+  --color: #ffffff;
+  --border-color: transparent;
+  font-size: 15px;
+  font-weight: 600;
+}

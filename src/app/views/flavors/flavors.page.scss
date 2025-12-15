@@ -1,3 +1,11 @@
+ion-header {
+  padding-top: env(safe-area-inset-top);
+}
+
+ion-toolbar {
+  padding-top: 24px;
+}
+
 /* Marge en haut pour éviter la barre système */
 ion-content {
   --padding-top: 16px;
@@ -5,9 +13,9 @@ ion-content {
 
 /* Titres de sections */
 h2 {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 8px 0 6px;
   color: #222;
 }
 

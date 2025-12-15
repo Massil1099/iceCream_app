@@ -35,8 +35,9 @@
       <ion-button
         color="danger"
         shape="round"
-        [routerLink]="['/empty-flavor', flavor.name]">
-        <ion-icon name="alert-circle"></ion-icon>
+        [routerLink]="['/empty-flavor', flavor.name]"
+        aria-label="Flavor out of stock">
+        <ion-icon name="alert" slot="icon-only"></ion-icon>
       </ion-button>
     </ng-template>
 

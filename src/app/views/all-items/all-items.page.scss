@@ -1,0 +1,79 @@
+/* Marge haute  */
+ion-content {
+  --padding-top: 16px;
+}
+
+h2 {
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+  color: #222;
+  margin: 12px 0 8px;
+}
+
+
+ion-row {
+  align-items: center;
+}
+
+/* Checkbox */
+ion-checkbox {
+  --size: 18px;
+}
+
+/* ===== Bouton Collapse / Expand ===== */
+ion-row:first-of-type ion-button {
+  --border-radius: 22px;
+  --background: #6b5aa6;
+  --background-activated: #5a4a94;
+  --color: #fff;
+  height: 42px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ===== Selected item ===== */
+ion-row:nth-of-type(2) ion-label {
+  font-weight: 600;
+}
+
+ion-row:nth-of-type(3) {
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+/* ===== List rows ===== */
+ion-row[style*="margin-bottom: 12px"] ion-label {
+  font-size: 14px;
+}
+
+/* Align quantity right (ml, g, units) */
+ion-col:last-child {
+  text-align: right;
+}
+
+/* ===== Bouton ORDER ===== */
+ion-row[style*="margin-top: 30px"] ion-button {
+  --border-radius: 24px;
+  --background: #6b5aa6;
+  --background-activated: #5a4a94;
+  --color: #fff;
+  height: 46px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* ===== Bouton Back ===== */
+ion-row[style*="margin-top: 8px"] ion-button {
+  --border-radius: 24px;
+  --color: #6b5aa6;
+  --border-color: #6b5aa6;
+  height: 44px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Checkbox disabled  */
+ion-checkbox[disabled] {
+  opacity: 0.6;
+}

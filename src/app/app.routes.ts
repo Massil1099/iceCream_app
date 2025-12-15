@@ -1,16 +1,10 @@
 import { Routes } from '@angular/router';
-import { FlavorsPage } from './views/flavors/flavors.page';
-import { EmptyFlavorPage } from './views/empty-flavor/empty-flavor.page';
+
 export const routes: Routes = [
   {
     path: '',
     redirectTo: 'flavors',
     pathMatch: 'full',
-  },
-  {
-    path: 'ice-cream',
-    loadComponent: () =>
-      import('./views/ice-cream/ice-cream.page').then(m => m.IceCreamPage)
   },
   {
     path: 'flavors',
