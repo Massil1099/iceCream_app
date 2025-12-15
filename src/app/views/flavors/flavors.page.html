@@ -77,6 +77,19 @@
       </ion-col>
     </ion-row>
 
+    <!-- BOUTON CREATION GLACE -->
+    <ion-row style="margin-top: 30px;">
+      <ion-col>
+        <ion-button
+          expand="block"
+          (click)="makeIceCream()"
+          [disabled]="!canMakeIceCream">
+          Make ice cream
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+
 
   </ion-grid>
 </ion-content>
