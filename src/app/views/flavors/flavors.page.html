@@ -11,8 +11,8 @@
       <app-flavor
         [flavor]="flavor"
         [totalScoops]="totalScoops"
-        [maxScoops]="maxScoops"
-      ></app-flavor>
+        [maxScoops]="maxScoops">
+      </app-flavor>
     }
 
     <!-- MESSAGE ERREUR -->
@@ -24,7 +24,6 @@
       </ion-col>
     </ion-row>
 
-
     <!-- SECTION : CONTAINER -->
     <ion-row style="margin-top: 30px;">
       <ion-col>
@@ -34,18 +33,33 @@
 
     <ion-radio-group [(ngModel)]="selectedContainer" ngDefaultControl>
       @for (container of containers; track container.type) {
-        <ion-row style="margin-bottom: 10px;">
+        <ion-row style="margin-bottom: 10px; align-items:center;">
+
           <ion-col size="auto">
-            <ion-radio [value]="container.type"></ion-radio>
+            <ion-radio
+              [value]="container.type"
+              [disabled]="container.stock <= 0">
+            </ion-radio>
           </ion-col>
+
           <ion-col>
-            <ion-label>{{ container.type | titlecase }} ({{ container.price }}€)</ion-label>
+            <ion-label>
+              {{ container.type | titlecase }} ({{ container.price }}€)
+            </ion-label>
           </ion-col>
+
+          <!-- ICÔNE ROUGE SI ÉPUISÉ -->
+          <ion-col size="auto">
+            <ion-icon
+              *ngIf="container.stock <= 0"
+              name="alert-circle"
+              color="danger">
+            </ion-icon>
+          </ion-col>
+
         </ion-row>
       }
     </ion-radio-group>
-    <p>DEBUG container = {{ selectedContainer }}</p>
-    <p>DEBUG price = {{ containerPrice }}</p>
 
     <!-- SECTION : EXTRAS -->
     <ion-row style="margin-top: 30px;">
@@ -55,19 +69,30 @@
     </ion-row>
 
     @for (extra of extras; track extra.name) {
-      <ion-row style="margin-bottom: 10px;">
+      <ion-row style="margin-bottom: 10px; align-items:center;">
+
         <ion-col size="auto">
           <ion-checkbox
             [(ngModel)]="selectedExtras[extra.name]"
-            labelPlacement="end">
+            labelPlacement="end"
+            [disabled]="extra.stock <= 0">
             {{ extra.name }} ({{ extra.price }}€)
           </ion-checkbox>
         </ion-col>
+
+        <!-- Alerte icone ROUGE SI ÉPUISÉ -->
+        <ion-col size="auto">
+          <ion-icon
+            *ngIf="extra.stock <= 0"
+            name="alert-circle"
+            color="danger">
+          </ion-icon>
+        </ion-col>
+
       </ion-row>
     }
 
-
-    <!-- PRICE SECTION -->
+    <!-- PRICE SECTION  -->
     <ion-row style="margin-top: 30px;">
       <ion-col>
         <h2>Price</h2>
@@ -88,8 +113,6 @@
         </ion-button>
       </ion-col>
     </ion-row>
-
-
 
   </ion-grid>
 </ion-content>

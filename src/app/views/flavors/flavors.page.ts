@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import {
   IonContent, IonHeader, IonToolbar, IonTitle,
-  IonGrid, IonRow, IonCheckbox, IonCol, IonRadio, IonRadioGroup, IonLabel, IonText, IonButton } from '@ionic/angular/standalone';
+  IonGrid, IonRow, IonCheckbox, IonCol, IonRadio, IonRadioGroup, IonLabel, IonText, IonButton, IonIcon } from '@ionic/angular/standalone';
 
 import { IceCreamRepository } from 'src/app/repository/ice-cream-repository';
 import { Flavor } from 'src/app/data/flavor';
@@ -15,7 +15,7 @@ import { FlavorComponent } from '../flavor/flavor.component';
   templateUrl: './flavors.page.html',
   styleUrls: ['./flavors.page.scss'],
   standalone: true,
-  imports: [IonButton, IonText, IonLabel, IonRadio,  IonRadioGroup, IonCol, 
+  imports: [IonIcon, IonButton, IonText, IonLabel, IonRadio,  IonRadioGroup, IonCol, 
     IonContent, IonHeader, IonToolbar, IonTitle,
     IonGrid, IonRow, IonCheckbox,
     CommonModule, FormsModule,
